@@ -121,28 +121,41 @@ export default function Home() {
 
   return (
     <main className="">
-      <div className="">
-        <h1>DS360 to Amazon</h1>
+      <div className="flex flex-col text-center items-center justify-center w-screen">
+        <h1>DS360 Inventory Sum</h1>
         <input
           type="file"
           name="file"
           accept=".csv"
           onChange={(e) => handleFile(e)}
-          className="m-2"
+          className="m-2 w-1/2 border border-black"
         ></input>
         <input
           type="file"
           name="file"
           accept=".csv"
           onChange={(e) => handleFileTwo(e)}
-          className="m-2"
+          className="m-2 w-1/2 border border-black"
         ></input>
-        <button onClick={() => combineDuplicates([...data, ...data2])}>
+        <button
+          className="border border-black w-40 bg-green-300 hover:bg-green-700"
+          onClick={() => combineDuplicates([...data, ...data2])}
+        >
           Combine
         </button>
-        <br />
-        <div>{finalCsv}</div>
+        <p>
+          After hitting combine button, inspect this page by right clicking then
+          clicking Inspect
+        </p>
+        <p>
+          Right click the object in the console and select copy. <br /> Then
+          click the link below, paste in the top box and convert to CSV.
+        </p>
+        <a href="https://www.convertcsv.com/json-to-csv.htm" className='p-2 border border-black rounded-lg bg-green-300 hover:bg-green-700'>
+          After copying object, click here.
+        </a>
       </div>
+      <div>{finalCsv}</div>
     </main>
   );
 }
